@@ -1,0 +1,35 @@
+ConcurrentLua 1.0.3
+===================
+
+Requirements
+------------
+* The Lua Socket module (http://luasocket.luaforge.net)
+* The Lua Copas module (http://www.keplerproject.org/copas/)
+
+
+Installation
+------------
+The system can be compiled and installed using the make files:
+
+	make all
+	make install
+
+
+Usage
+-----
+See the doc/introduction.html and doc/reference.html files.
+
+
+Website
+-------
+http://concurrentlua.luaforge.net
+
+
+Author
+------
+Lefteris Chatzimparmpas <lefcha@hellug.gr>
+
+
+License
+-------
+See the LICENSE file.

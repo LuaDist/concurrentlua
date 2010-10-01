@@ -1,0 +1,17 @@
+Version 1.0.3 - 23 May 2009
+---------------------------
+- Bug fix; time calculation for the root process while sleeping was wrong.
+- Minor enhancements to the serializer in the handling of tables.
+
+Version 1.0.2 - 21 June 2008
+----------------------------
+- Minor enhancement to the serializer in the handling of strings.
+
+Version 1.0.1 - 24 March 2008
+-----------------------------
+- Bug fix; cltime.time() overflow in 32-bit architectures caused problems to
+  the scheduler.
+
+Version 1.0 - 31 December 2007
+------------------------------
+- Initial release.

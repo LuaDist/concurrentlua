@@ -1,0 +1,16 @@
+--- This file is part of LuaDist project
+
+name = "concurrentlua"
+version = "1.0.3"
+
+desc = "Concurrency Oriented Programming in Lua"
+author = "Lefteris Chatzimparmpas"
+license = "MIT"
+url = "http://concurrentlua.luaforge.net/"
+maintainer = "Peter Drahoš"
+
+depends = {
+	"lua ~> 5.1",
+	"luasocket >= 2.0",
+	"copas >= 1.1"
+}
