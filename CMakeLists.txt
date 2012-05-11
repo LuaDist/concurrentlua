@@ -1,23 +1,24 @@
-# Copyright (C) 2007-2009 LuaDist.
+# Copyright (C) 2007-2012 LuaDist.
 # Created by Peter Drahoš
 # Redistribution and use of this file is allowed according to the terms of the MIT license.
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
 PROJECT(concrrentlua C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
-INCLUDE(dist.cmake)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+INCLUDE(cmake/dist.cmake)
+INCLUDE(lua)
 
 # Build
-ADD_LUA_MODULE(cldaemon src/cldaemon/cldaemon.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def)
-ADD_LUA_MODULE(cltime src/cltime/cltime.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def)
+INSTALL_LUA_MODULE(cldaemon src/cldaemon/cldaemon.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def)
+INSTALL_LUA_MODULE(cltime src/cltime/cltime.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def)
 
 # Install all files and documentation
-INSTALL (TARGETS cldaemon cltime DESTINATION ${INSTALL_CMOD})
-INSTALL (PROGRAMS src/clpmd/clpmd DESTINATION ${INSTALL_BIN})
-INSTALL (DIRECTORY src/concurrent DESTINATION ${INSTALL_LMOD} PATTERN "Makefile" EXCLUDE)
-INSTALL (DIRECTORY samples/ DESTINATION ${INSTALL_EXAMPLE})
-INSTALL (DIRECTORY test/ DESTINATION ${INSTALL_TEST})
-INSTALL (DIRECTORY doc/ DESTINATION ${INSTALL_DOC})
-INSTALL (FILES README LICENSE NEWS DESTINATION ${INSTALL_DATA})
+INSTALL_LUA_EXECUTABLE( clpmd src/clpmd/clpmd )
+INSTALL_EXAMPLE ( samples/ )
+INSTALL_TEST ( test/ )
+INSTALL_DOC ( doc/ )
+INSTALL_DATA ( README LICENSE )
 
+# Not using macros, instead using direct install
+INSTALL (DIRECTORY src/concurrent DESTINATION ${INSTALL_LMOD} COMPONENT Runtime PATTERN "Makefile" EXCLUDE)
