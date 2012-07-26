@@ -4,21 +4,22 @@
 # For details see the COPYRIGHT file distributed with LuaDist.
 # Please note that the package source code is licensed under its own license.
 
-PROJECT(concrrentlua C)
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-INCLUDE(cmake/dist.cmake)
-INCLUDE(lua)
+project ( concrrentlua C )
+cmake_minimum_required ( VERSION 2.8 )
+include ( cmake/dist.cmake )
+include ( lua )
 
 # Build
-INSTALL_LUA_MODULE(cldaemon src/cldaemon/cldaemon.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def)
-INSTALL_LUA_MODULE(cltime src/cltime/cltime.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def)
+install_lua_module ( cldaemon src/cldaemon/cldaemon.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def )
+install_lua_module ( cltime src/cltime/cltime.c ${CMAKE_CURRENT_SOURCE_DIR}/src/cldaemon/cldaemon.def )
 
 # Install all files and documentation
-INSTALL_LUA_EXECUTABLE( clpmd src/clpmd/clpmd )
-INSTALL_EXAMPLE ( samples/ )
-INSTALL_TEST ( test/ )
-INSTALL_DOC ( doc/ )
-INSTALL_DATA ( README LICENSE )
+install_lua_executable ( clpmd src/clpmd/clpmd )
+install_example ( samples/ )
+install_test ( test/ )
+install_doc ( doc/ )
+install_data ( README LICENSE )
 
 # Not using macros, instead using direct install
-INSTALL (DIRECTORY src/concurrent DESTINATION ${INSTALL_LMOD} COMPONENT Runtime PATTERN "Makefile" EXCLUDE)
+install ( DIRECTORY src/concurrent DESTINATION ${INSTALL_LMOD} COMPONENT Runtime 
+  PATTERN "Makefile" EXCLUDE )
