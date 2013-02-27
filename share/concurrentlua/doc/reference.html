@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<meta name="keywords" content="concurrent lua"></meta>
+<meta name="description" content="ConcurrentLua. Concurrency Oriented
+  Programming in Lua."></meta>
+<title>ConcurrentLua - Reference</title>
+<link href="stylesheet.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+
+<div class="center">
+  <a class="link" href="http://luaforge.net/projects/concurrentlua/">
+    <img src="concurrentlua.png" alt="ConcurrentLua logo"></img>
+  </a>
+  <h1>ConcurrentLua</h1>
+  <p>Concurrency Oriented Programming in Lua</p>
+  <div class="navigation">
+    <a class="link" href="index.html">home</a> &middot;
+    <a class="link" href="index.html#download">download</a> &middot;
+    <a class="link" href="index.html#installation">installation</a> &middot;
+    <a class="link" href="introduction.html">introduction</a> &middot;
+    <a class="link" href="reference.html">reference</a>
+  </div>
+</div>
+
+<div class="box">
+
+  <h3>Reference</h3>
+
+  <h4>Processes</h4>
+
+  <p><code>spawn(body, ...)</code></p>
+
+  <div class="description"><p>Creates a process which will execute the body
+  function. Any extra arguments can be passed to the executing function. The PID
+  of the new process is returned. In case of error <code>nil</code> and an error
+  message are returned.</p></div>
+
+  <p><code>spawn(node, body, ...)</code></p>
+
+  <div class="description"><p>Creates a process in a remote node which is a
+  string in the format <code>'nodename@hostname'</code> and the new process will
+  execute the body function. The PID of the new process is returned. In case of
+  error <code>nil</code> and an error message are returned.</p></div>
+
+  <p><code>self()</code></p>
+
+  <div class="description"><p>Returns the PID of the calling process.</p></div>
+
+  <p><code>isalive(process)</code></p>
+
+  <div class="description"><p>Checks if the process, which can be specified by
+  PID or by its registered string name, is alive. Returns <code>true</code> if
+  the process is alive, and <code>false</code> otherwise.</p></div>
+
+  <p><code>exit(reason)</code></p>
+
+  <div class="description"><p>Exits abnormally the calling process with the
+  specified <code>reason</code> string as a cause of exit.</p></div>
+
+  <h4>Messages</h4>
+
+  <p><code>receive([timeout])</code></p>
+
+  <div class="description"><p>Receives the next message in the mailbox of the
+  calling process. If the mailbox is empty it waits indefinitely for a message
+  to arrive, unless a <code>timeout</code> number in milliseconds is specified.
+  A message of any type, that depends on what was sent, is returned.</p></div>
+
+  <p><code>send(process, message)</code></p>
+
+  <div class="description"><p>Sends to the destination <code>process</code> a
+  <code>message</code> which can be one of: boolean, number, string, table,
+  function. Returns <code>true</code> if the message was send successfully, and
+  <code>false</code> if not.</p></div>
+
+  <h4>Scheduling</h4>
+
+  <p><code>sleep(time)</code></p>
+
+  <div class="description"><p>Suspends implicitly the calling process for the
+  specified <code>time</code>, the number of milliseconds.</p></div>
+
+  <p><code>loop([timeout])</code></p>
+
+  <div class="description"><p>Calls the system's infinite loop which executes
+  the process scheduler until all the processes have terminated, or unless the
+  specified <code>timeout</code>, the number of milliseconds, has
+  expired.</p></div>
+
+  <p><code>interrupt()</code></p>
+
+  <div class="description"><p>Interrupts the infinite loop of the process
+  scheduler.</p></div>
+
+  <p><code>step([timeout])</code></p>
+
+  <div class="description"><p>Executes one step of the process scheduler unless
+  the specified <code>timeout</code>, the number of milliseconds, has
+  expired.</p></div>
+
+  <p><code>tick()</code></p>
+
+  <div class="description"><p>Forwards the system's clock by one tick.</p></div>
+
+  <h4>Options</h4>
+
+  <p><code>setoption(key, value)</code></p>
+
+  <div class="description"><p>Sets the <code>key</code> string option to the
+  specified <code>value</code>, the type of which depends on the
+  option.</p></div>
+
+  <p><code>getoption(key)</code></p>
+
+  <div class="description"><p>Returns the value of the <code>key</code> string
+  option.</p></div>
+
+  <h4>Node</h4>
+
+  <p><code>init(node)</code></p>
+
+  <div class="description">
+
+    <p>Makes the runtime system a distributed node. The
+    first argument is the name string of the <code>node</code>, which can be
+    either in <code>'nodename'</code> or <code>'nodename@hostname'</code>
+    format.</p>
+
+    <p>If the <code>'shortnames'</code> option is set to <code>true</code>, then
+    short names are used instead of fully qualified domain names. If the
+    <code>'connectall'</code> option is set to <code>false</code>, then a fully
+    connected virtual network between the nodes will not be maintained.</p>
+
+  </div>
+
+  <p><code>shutdown()</code></p>
+
+  <div class="description"><p>Makes the runtime system stop being a distributed
+  node.</p></div>
+
+  <p><code>node()</code></p>
+
+  <div class="description"><p>Returns the name of the node the calling process
+  is running on.</p></div>
+
+  <p><code>nodes()</code></p>
+
+  <div class="description"><p>Returns a table with the nodes that the node the
+  calling process is running on is connected to.</p></div>
+
+  <p><code>isnodealive()</code></p>
+
+  <div class="description"><p>Returns <code>true</code> if the local node has
+  been initialized, and <code>false</code> otherwise.</p></div>
+
+  <p><code>monitornode(node)</code></p>
+
+  <div class="description"><p>The calling process starts monitoring the
+  specified <code>node</code>, which is a string of the format
+  <code>'nodename@hostname'</code>.</p></div>
+
+  <p><code>demonitornode(node)</code></p>
+
+  <div class="description"><p>The calling process stops monitoring the specified
+  <code>node</code>, which is a string of the format
+  <code>'nodename@hostname'</code>.</p></div>
+
+  <h4>Security</h4>
+
+  <p><code>setcookie(secret)</code></p>
+
+  <div class="description"><p>Sets the pre-shared <code>secret</code> key, a
+  string, also known as the <em>magic cookie</em>, that will be used for node
+  authentication.</p></div>
+
+  <p><code>getcookie()</code></p>
+
+  <div class="description"><p>Returns the pre-shared secret key, also known as
+  the <em>magic cookie</em>, that is being used for node
+  authentication.</p></div>
+
+  <h4>Registering</h4>
+
+  <p><code>register(name, pid)</code></p>
+
+  <div class="description"><p>Registers the <code>name</code> string for the
+  given process <code>pid</code>.</p></div>
+
+  <p><code>unregister(name)</code></p>
+
+  <div class="description"><p>Unregisters the process with the <code>name</code>
+  string.</p></div>
+
+  <p><code>whereis(name)</code></p>
+
+  <div class="description"><p>Returns the PID of the process with the registered
+  <code>name</code> string.</p></div>
+
+  <p><code>registered()</code></p>
+
+  <div class="description"><p>Returns a table with all the registered process
+  names.</p></div>
+
+  <h4>Linking</h4>
+
+  <p><code>link(process)</code></p>
+
+  <div class="description">
+
+    <p>The calling process gets linked with the specified
+    <code>process</code>, which can be either a PID, a registered name, or a
+    remote process. A remote process is a table with two elements, the remote
+    process PID or registered name and the node's name in the format
+    <code>'nodename@hostname' </code>.</p>
+
+    <p>The <code>'trapexit'</code> option can be set to <code>true</code>, if
+    exit signals between linked processes are to be trapped.</p>
+
+  </div>
+
+  <p><code>unlink(process)</code></p>
+
+  <div class="description"><p>The calling process gets unlinked with the
+  specified <code>process</code>, which can be either a PID, a registered name,
+  or a remote process. A remote process is a table with two elements, the remote
+  process PID or registered name and the node's name in the format <code>
+  'nodename@hostname'</code>.</p></div>
+
+  <p><code>spawnlink(body, ...)</code></p>
+
+  <div class="description">
+
+    <p>Creates a process which will execute the <code> body</code> function and
+    the calling function also gets linked to the new process. Any extra
+    arguments can be passed to the executing function. The PID of the new
+    process is returned. In case of error <code>nil</code> and an error message
+    are returned.</p>
+
+    <p>The <code>'trapexit'</code> option can be set to <code>true</code>, if
+    exit signals between linked processes are to be trapped.</p>
+
+  </div>
+
+  <p><code>spawnlink(node, body, ...)</code></p>
+
+  <div class="description">
+
+    <p>Creates a process in a remote <code>node</code> which is a string in the
+    format <code>'nodename@hostname'</code>, the new process will execute the
+    <code>body</code> function, and also the calling process gets linked to the
+    newly created process. The PID of the new process is returned. In case of
+    error <code>nil</code> and an error message are returned.</p>
+
+    <p>The <code>'trapexit'</code> option can set to <code>true</code>, if exit
+    signals between linked processes are to be trapped.</p>
+
+  </div>
+
+  <h4>Monitoring</h4>
+
+  <p><code>monitor(process)</code></p>
+
+  <div class="description"><p>The calling process starts monitoring the
+  specified <code>process</code>, which can be either a PID, a registered name,
+  or a remote process. A remote process is a table with two elements, the remote
+  process PID or registered name and the node's name in the format
+  <code>'nodename@hostname'</code>.</p></div>
+
+  <p><code>demonitor(process)</code></p>
+
+  <div class="description"><p>The calling process stops monitoring the specified
+  <code>process</code>, which can be either a PID, a registered name, or a
+  remote process. A remote process is a table with two elements, the remote
+  process PID or registered name and the node's name in the format <code>
+  'nodename@hostname'</code>.</p></div>
+
+  <p><code>spawnmonitor(body, ...)</code></p>
+
+  <div class="description"><p>Creates a process which will execute the <code>
+  body</code> function and the calling function also starts monitoring the new
+  process. Any extra arguments can be passed to the executing function. The PID
+  of the new process is returned. In case of error <code>nil</code> and an error
+  message are returned.</p></div>
+
+  <p><code>spawnmonitor(node, body, ...)</code></p>
+
+  <div class="description"><p>Creates a process in a remote <code>node</code>
+  which is a string in the format <code>'nodename@hostname'</code>, the new
+  process will execute the <code>body</code> function, and also the calling
+  process starts monitoring the newly created process. The PID of the new
+  process is returned. In case of error <code>nil</code> and an error message
+  are returned.</p></div>
+
+</div>
+
+<div class="center">
+  <div class="navigation">
+    <a class="link" href="index.html">home</a> &middot;
+    <a class="link" href="index.html#download">download</a> &middot;
+    <a class="link" href="index.html#installation">installation</a> &middot;
+    <a class="link" href="introduction.html">introduction</a> &middot;
+    <a class="link" href="reference.html">reference</a>
+  </div>
+</div>
+
+</body>
+
+</html>

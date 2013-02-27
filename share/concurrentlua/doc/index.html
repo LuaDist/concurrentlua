@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+ "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"></meta>
+<meta name="keywords" content="concurrent lua"></meta>
+<meta name="description" content="ConcurrentLua. Concurrency Oriented
+  Programming in Lua."></meta>
+<title>ConcurrentLua</title>
+<link href="stylesheet.css" rel="stylesheet" type="text/css"></link>
+</head>
+
+<body>
+
+<div class="center">
+  <a class="link" href="http://luaforge.net/projects/concurrentlua/">
+    <img src="concurrentlua.png" alt="ConcurrentLua logo"></img>
+  </a>
+  <h1>ConcurrentLua</h1>
+  <p>Concurrency Oriented Programming in Lua</p>
+  <div class="navigation">
+    <a class="link" href="index.html">home</a> &middot;
+    <a class="link" href="index.html#download">download</a> &middot;
+    <a class="link" href="index.html#installation">installation</a> &middot;
+    <a class="link" href="introduction.html">introduction</a> &middot;
+    <a class="link" href="reference.html">reference</a>
+  </div>
+</div>
+
+<div class="box">
+
+  <h3><a>Overview</a></h3>
+
+  <p>ConcurrentLua is a system that implements Erlang-style concurrency for the
+  <a class="link" href="http://www.lua.org/">Lua programming language</a>. It is
+  a system that brings an alternative to what scripting languages offer for
+  concurrent and distributed programming.</p>
+
+  <p>Erlang is regarded as the reference language for concurrent and distributed
+  programming using the message-passing model. Erlang was designed with
+  concurrency oriented programming in mind and has built-in facilities to
+  support this model.</p>
+
+  <p>ConcurrentLua is based on the Lua model for concurrency, namely coroutines,
+  and extends this model by providing message-passing primitives. Distributed
+  programming is supported transparently with the same message-passing
+  primitives.</p>
+
+  <p>ConcurrentLua is implemented as a collection of Lua modules that can be
+  loaded by any Lua program. Most of the code is written in Lua itself, with
+  minor parts written in C.</p>
+
+  <p>The system was originally designed and implemented as part of my MSc Thesis
+  at the Royal Institute of Technology (KTH). At this point it can be considered
+  a working prototype, nevertheless it is a complete solution and it was
+  implemented so as to be further extended in the future, if found useful by the
+  community.</p>
+
+  <h3><a id="download">Download</a></h3>
+
+  <p>The current version is 1.0.3, released on 23 May 2009.</p>
+
+  <p>ConcurrentLua can be downloaded from its <a class="link"
+  href="http://luaforge.net/projects/concurrentlua/">LuaForge project
+  page</a>.</p>
+
+  <h3><a id="installation">Installation</a></h3>
+
+  <p>ConcurrentLua depends only on the <a class="link"
+  href="http://luasocket.luaforge.net/">LuaSocket</a> and <a class="link"
+  href="http://www.keplerproject.org/copas/">Copas</a> modules.</p>
+
+  <p>ConcurrentLua uses the new package system for Lua 5.1. </p>
+
+  <p>ConcurrentLua is supplied with a Makefile that can be used to build and
+  install it.</p>
+
+  <h3><a>Contact</a></h3>
+
+  <p>Lefteris Chatzimparmpas <a class="link"
+  href="mailto:lefcha@hellug.gr">&lt;lefcha@hellug.gr&gt;</a></p>
+
+  <h3><a>License</a></h3>
+
+  <p>This program is released under the same <a class="link" href=
+  "license.html">terms and conditions</a> as the Lua language, the MIT/X11
+  license.</p>
+
+</div>
+
+<div class="center">
+  <div class="navigation">
+    <a class="link" href="index.html">home</a> &middot;
+    <a class="link" href="index.html#download">download</a> &middot;
+    <a class="link" href="index.html#installation">installation</a> &middot;
+    <a class="link" href="introduction.html">introduction</a> &middot;
+    <a class="link" href="reference.html">reference</a>
+  </div>
+</div>
+
+</body>
+
+</html>
+

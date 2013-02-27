@@ -1,0 +1,119 @@
+type = "x86_64"
+arch = "Ubuntu"
+author = "Lefteris Chatzimparmpas"
+depends = {
+[[lua ~> 5.1]],
+[[luasocket >= 2.0]],
+[[copas >= 1.1]],
+}
+
+desc = "Concurrency Oriented Programming in Lua"
+version = "1.0.3"
+maintainer = "Peter Drahoš"
+files = {
+Runtime = {
+[[lib/lua/cldaemon.so]],
+[[lib/lua/cltime.so]],
+[[bin/clpmd]],
+[[lib/lua/concurrent/option.lua]],
+[[lib/lua/concurrent/message.lua]],
+[[lib/lua/concurrent/distributed/network.lua]],
+[[lib/lua/concurrent/distributed/cookie.lua]],
+[[lib/lua/concurrent/distributed/message.lua]],
+[[lib/lua/concurrent/distributed/register.lua]],
+[[lib/lua/concurrent/distributed/link.lua]],
+[[lib/lua/concurrent/distributed/process.lua]],
+[[lib/lua/concurrent/distributed/scheduler.lua]],
+[[lib/lua/concurrent/distributed/node.lua]],
+[[lib/lua/concurrent/distributed/init.lua]],
+[[lib/lua/concurrent/distributed/monitor.lua]],
+[[lib/lua/concurrent/register.lua]],
+[[lib/lua/concurrent/link.lua]],
+[[lib/lua/concurrent/root.lua]],
+[[lib/lua/concurrent/process.lua]],
+[[lib/lua/concurrent/scheduler.lua]],
+[[lib/lua/concurrent/init.lua]],
+[[lib/lua/concurrent/monitor.lua]],
+}
+,
+Test = {
+[[share/concurrentlua/test//distributed2a.sh]],
+[[share/concurrentlua/test//distributed3a.sh]],
+[[share/concurrentlua/test//distributed3b.sh]],
+[[share/concurrentlua/test//distributed2b.sh]],
+[[share/concurrentlua/test//concurrent.sh]],
+[[share/concurrentlua/test//distributed/process2a.lua]],
+[[share/concurrentlua/test//distributed/cookie1b.lua]],
+[[share/concurrentlua/test//distributed/node1a.lua]],
+[[share/concurrentlua/test//distributed/register2c.lua]],
+[[share/concurrentlua/test//distributed/trapexit2a.lua]],
+[[share/concurrentlua/test//distributed/trapexit2b.lua]],
+[[share/concurrentlua/test//distributed/register1b.lua]],
+[[share/concurrentlua/test//distributed/cookie1a.lua]],
+[[share/concurrentlua/test//distributed/link1b.lua]],
+[[share/concurrentlua/test//distributed/process1a.lua]],
+[[share/concurrentlua/test//distributed/node1b.lua]],
+[[share/concurrentlua/test//distributed/register2a.lua]],
+[[share/concurrentlua/test//distributed/monitor2a.lua]],
+[[share/concurrentlua/test//distributed/monitor2b.lua]],
+[[share/concurrentlua/test//distributed/link2b.lua]],
+[[share/concurrentlua/test//distributed/trapexit1a.lua]],
+[[share/concurrentlua/test//distributed/register1a.lua]],
+[[share/concurrentlua/test//distributed/link2a.lua]],
+[[share/concurrentlua/test//distributed/monitor1a.lua]],
+[[share/concurrentlua/test//distributed/register2b.lua]],
+[[share/concurrentlua/test//distributed/message1a.lua]],
+[[share/concurrentlua/test//distributed/cookie2b.lua]],
+[[share/concurrentlua/test//distributed/monitor2c.lua]],
+[[share/concurrentlua/test//distributed/trapexit2c.lua]],
+[[share/concurrentlua/test//distributed/monitor1b.lua]],
+[[share/concurrentlua/test//distributed/cookie2a.lua]],
+[[share/concurrentlua/test//distributed/message1b.lua]],
+[[share/concurrentlua/test//distributed/process2b.lua]],
+[[share/concurrentlua/test//distributed/link2c.lua]],
+[[share/concurrentlua/test//distributed/trapexit1b.lua]],
+[[share/concurrentlua/test//distributed/link1a.lua]],
+[[share/concurrentlua/test//distributed/process1b.lua]],
+[[share/concurrentlua/test//distributed3c.sh]],
+[[share/concurrentlua/test//concurrent/monitor2.lua]],
+[[share/concurrentlua/test//concurrent/message1.lua]],
+[[share/concurrentlua/test//concurrent/process1.lua]],
+[[share/concurrentlua/test//concurrent/link1.lua]],
+[[share/concurrentlua/test//concurrent/process2.lua]],
+[[share/concurrentlua/test//concurrent/register1.lua]],
+[[share/concurrentlua/test//concurrent/trapexit2.lua]],
+[[share/concurrentlua/test//concurrent/monitor1.lua]],
+[[share/concurrentlua/test//concurrent/link2.lua]],
+[[share/concurrentlua/test//concurrent/trapexit1.lua]],
+[[share/concurrentlua/test//concurrent/register2.lua]],
+}
+,
+Example = {
+[[share/concurrentlua/example//example4b.lua]],
+[[share/concurrentlua/example//example2.lua]],
+[[share/concurrentlua/example//example1.lua]],
+[[share/concurrentlua/example//example4a.lua]],
+[[share/concurrentlua/example//example5b.lua]],
+[[share/concurrentlua/example//example5a.lua]],
+[[share/concurrentlua/example//example3.lua]],
+}
+,
+Data = {
+[[share/concurrentlua/README]],
+[[share/concurrentlua/LICENSE]],
+}
+,
+Documentation = {
+[[share/concurrentlua/doc//introduction.html]],
+[[share/concurrentlua/doc//stylesheet.css]],
+[[share/concurrentlua/doc//license.html]],
+[[share/concurrentlua/doc//reference.html]],
+[[share/concurrentlua/doc//concurrentlua.png]],
+[[share/concurrentlua/doc//index.html]],
+}
+,
+}
+
+license = "MIT"
+name = "concurrentlua"
+url = "http://concurrentlua.luaforge.net/"
